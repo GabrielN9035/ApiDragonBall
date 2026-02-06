@@ -20,12 +20,7 @@ export default function inicial() {
         />
       </View>
       <View style={s.wrapInicial}>
-        <TouchableOpacity
-          style={s.btn}
-          onPress={() => {
-            router.push("/list");
-          }}
-        >
+        <TouchableOpacity style={s.btn} onPress={nextPage}>
           <Text style={s.btnText}>Visitar personagens</Text>
         </TouchableOpacity>
       </View>
