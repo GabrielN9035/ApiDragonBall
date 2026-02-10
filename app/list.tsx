@@ -1,4 +1,5 @@
 import { Image } from "expo-image";
+import { Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -68,14 +69,16 @@ export default function List() {
             ) : null
           }
           renderItem={({ item }) => (
-            <View style={s.card}>
-              <Image
-                source={{ uri: item.image }}
-                contentFit="contain"
-                style={s.image}
-              />
-              <Text style={s.nome}>{item.name}</Text>
-            </View>
+            <Link href="/modal" asChild>
+              <View style={s.card}>
+                <Image
+                  source={{ uri: item.image }}
+                  contentFit="contain"
+                  style={s.image}
+                />
+                <Text style={s.nome}>{item.name}</Text>
+              </View>
+            </Link>
           )}
         />
       )}
@@ -138,6 +141,7 @@ const s = StyleSheet.create({
     shadowColor: "#000",
     shadowOpacity: 0.12,
     shadowRadius: 6,
+    width: "92%",
   },
 
   nome: {
@@ -168,5 +172,9 @@ const s = StyleSheet.create({
     height: 60,
     alignSelf: "center",
     marginVertical: 20,
+  },
+  link: {
+    paddingTop: 20,
+    fontSize: 20,
   },
 });

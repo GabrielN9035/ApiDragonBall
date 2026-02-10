@@ -1,4 +1,4 @@
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function inicial() {
@@ -23,6 +23,9 @@ export default function inicial() {
         <TouchableOpacity style={s.btn} onPress={nextPage}>
           <Text style={s.btnText}>Visitar personagens</Text>
         </TouchableOpacity>
+        <Link href="/modal" style={s.link}>
+          Open modal
+        </Link>
       </View>
     </>
   );
@@ -64,5 +67,9 @@ const s = StyleSheet.create({
   btnText: {
     color: "#ffffff",
     fontSize: 22,
+  },
+  link: {
+    paddingTop: 20,
+    fontSize: 20,
   },
 });
