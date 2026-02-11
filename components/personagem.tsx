@@ -1,29 +1,24 @@
+import { Image } from "expo-image";
 import { Link } from "expo-router";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Personagem({ item }: any) {
+  console.log(item);
   return (
-    <Link href={"/modal/${item.id}"}>
-      <View style={styles.card}>
-        <View style={style.wrapImg}>
-          <Image
-            source={{ uri: item.image }}
-            contentFit="cover"
-            style={s.image}
-          />
-          <Text>{item.name}</Text>
-          <View style={s.imageContainer}></View>
-        </View>
+    <Link href={`/modal/${item.id}`} asChild>
+      <View style={s.card}>
+        <Image
+          source={{ uri: item.image }}
+          contentFit="contain"
+          style={s.image}
+        />
+        <Text style={s.nome}>{item.name}</Text>
       </View>
     </Link>
   );
 }
 
 const s = StyleSheet.create({
-  image: {
-    flex: 1,
-    width: "100%",
-  },
   personagem: {
     borderColor: "black",
     borderWidth: 2,
@@ -37,5 +32,21 @@ const s = StyleSheet.create({
   imageContainer: {
     width: 350,
     height: 1000,
+  },
+  card: {},
+  cardInfo: {},
+  name: {},
+  text: {},
+  text2: {},
+  wrapImg: {},
+  nome: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginTop: 12,
+    color: "#2f3542",
+  },
+  image: {
+    width: 200,
+    height: 260,
   },
 });

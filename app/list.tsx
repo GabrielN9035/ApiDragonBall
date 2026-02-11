@@ -1,7 +1,7 @@
+import Personagem from "@/components/personagem";
 import { Image } from "expo-image";
-import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 
 export default function List() {
   const [personagens, setPersonagens] = useState<any[]>([]);
@@ -68,18 +68,7 @@ export default function List() {
               />
             ) : null
           }
-          renderItem={({ item }) => (
-            <Link href="/modal" asChild>
-              <View style={s.card}>
-                <Image
-                  source={{ uri: item.image }}
-                  contentFit="contain"
-                  style={s.image}
-                />
-                <Text style={s.nome}>{item.name}</Text>
-              </View>
-            </Link>
-          )}
+          renderItem={({ item }) => <Personagem item={item}></Personagem>}
         />
       )}
     </View>
@@ -108,12 +97,12 @@ const s = StyleSheet.create({
 
   subtitulo: {
     fontSize: 16,
-    color: "#d2dae2",
+    color: "#ffffff",
     marginTop: 4,
   },
 
   input: {
-    backgroundColor: "#fff",
+    backgroundColor: "#eb8108",
     marginHorizontal: 16,
     marginBottom: 16,
     paddingVertical: 12,
@@ -131,7 +120,7 @@ const s = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#f89008",
     marginHorizontal: 16,
     marginBottom: 20,
     borderRadius: 16,
@@ -142,18 +131,6 @@ const s = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 6,
     width: "92%",
-  },
-
-  nome: {
-    fontSize: 18,
-    fontWeight: "600",
-    marginTop: 12,
-    color: "#2f3542",
-  },
-
-  image: {
-    width: 200,
-    height: 260,
   },
 
   wrapImage: {
